@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9886AA1C1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9886AA1A1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.swift */; };
-		9886AA1D1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9886AA1B1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.xib */; };
+		9828123B1DC71E3300D83A94 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 982812391DC71E3300D83A94 /* heart.png */; };
+		9828123C1DC71E3300D83A94 /* hearted.png in Resources */ = {isa = PBXBuildFile; fileRef = 9828123A1DC71E3300D83A94 /* hearted.png */; };
 		9886AA211DC3027200D8DBAD /* bg_xh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9886AA201DC3027200D8DBAD /* bg_xh.jpg */; };
 		9886AA231DC3028B00D8DBAD /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9886AA221DC3028B00D8DBAD /* test.jpg */; };
 		9894B9E91DC03FC400B73D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9894B9E81DC03FC400B73D84 /* AppDelegate.swift */; };
@@ -40,8 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9886AA1A1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPGoodsChildClassHeaderViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		9886AA1B1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPGoodsChildClassHeaderViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		982812391DC71E3300D83A94 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		9828123A1DC71E3300D83A94 /* hearted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hearted.png; sourceTree = "<group>"; };
 		9886AA201DC3027200D8DBAD /* bg_xh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_xh.jpg; sourceTree = "<group>"; };
 		9886AA221DC3028B00D8DBAD /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		9894B9E51DC03FC400B73D84 /* Card_hjw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Card_hjw.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +109,8 @@
 		9894B9E71DC03FC400B73D84 /* Card_hjw */ = {
 			isa = PBXGroup;
 			children = (
+				982812391DC71E3300D83A94 /* heart.png */,
+				9828123A1DC71E3300D83A94 /* hearted.png */,
 				9886AA221DC3028B00D8DBAD /* test.jpg */,
 				9886AA201DC3027200D8DBAD /* bg_xh.jpg */,
 				9894B9E81DC03FC400B73D84 /* AppDelegate.swift */,
@@ -119,8 +121,6 @@
 				9894B9F41DC03FC400B73D84 /* Info.plist */,
 				9894BA3D1DC0AB2400B73D84 /* CDFlowLayout.swift */,
 				9894BA3F1DC0ACEA00B73D84 /* CDViewCell.swift */,
-				9886AA1A1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.swift */,
-				9886AA1B1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.xib */,
 			);
 			path = Card_hjw;
 			sourceTree = "<group>";
@@ -256,8 +256,9 @@
 				9894B9F31DC03FC400B73D84 /* LaunchScreen.storyboard in Resources */,
 				9886AA231DC3028B00D8DBAD /* test.jpg in Resources */,
 				9886AA211DC3027200D8DBAD /* bg_xh.jpg in Resources */,
+				9828123C1DC71E3300D83A94 /* hearted.png in Resources */,
 				9894B9F01DC03FC400B73D84 /* Assets.xcassets in Resources */,
-				9886AA1D1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.xib in Resources */,
+				9828123B1DC71E3300D83A94 /* heart.png in Resources */,
 				9894B9EE1DC03FC400B73D84 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9894B9EB1DC03FC400B73D84 /* ViewController.swift in Sources */,
-				9886AA1C1DC2FB0500D8DBAD /* SPGoodsChildClassHeaderViewCollectionViewCell.swift in Sources */,
 				9894BA401DC0ACEA00B73D84 /* CDViewCell.swift in Sources */,
 				9894B9E91DC03FC400B73D84 /* AppDelegate.swift in Sources */,
 				9894BA3E1DC0AB2400B73D84 /* CDFlowLayout.swift in Sources */,

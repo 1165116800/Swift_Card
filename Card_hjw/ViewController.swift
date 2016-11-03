@@ -17,6 +17,7 @@ let LAYOUT_LEFTORRIGHT_WIDTH : CGFloat = (APP_FRAME_WIDTH-40)/5 + 20
 let CELL_WIDTH : CGFloat = (APP_FRAME_WIDTH-40)*3/5
 let CELL_HEIGHT : CGFloat = APP_FRAME_HEIGHT*3/7
 
+   var desLabel : UILabel!
 
 class ViewController: UIViewController{
     
@@ -25,16 +26,26 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1.0)
+        
+        data = ["test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg"]
+        
         let bgview = UIImageView(frame: CGRect(x: 0, y: 0, width: APP_FRAME_WIDTH, height: CELL_HEIGHT+60))
         bgview.isUserInteractionEnabled = true
         bgview.image = UIImage(named: "bg_xh.jpg")
         self.view.addSubview(bgview)
-        let desLabel = UILabel(frame: CGRect(x: 0, y: 25, width: APP_FRAME_WIDTH, height: 14))
-        desLabel.text = "我的足迹（1 / 13）"
+        
+        let str = "我的足迹（1 / \(data.count)）"
+        desLabel = UILabel(frame: CGRect(x: 0, y: 25, width: APP_FRAME_WIDTH, height: 14))
         desLabel.textAlignment = .center
         desLabel.font = UIFont.systemFont(ofSize: 14)
+        let attributeString = NSMutableAttributedString(string: str)
+        attributeString.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 10),
+                                     range: NSMakeRange(4, attributeString.length-4))
+        attributeString.addAttributes([NSBaselineOffsetAttributeName : 0.36*(14-10)], range: NSMakeRange(4, attributeString.length-4))
+        desLabel.attributedText = attributeString
         self.view.addSubview(desLabel)
-        data = ["test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg","test.jpg"]
+        
         let layout = CDFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20.0
@@ -50,8 +61,23 @@ class ViewController: UIViewController{
         collectionView.reloadData()
         bgview.addSubview(self.collectionView)
         
+        let heart = UIButton(frame: CGRect(x: APP_FRAME_WIDTH*0.5-25, y: APP_FRAME_HEIGHT-100, width: 50, height: 50))
+        self.view.addSubview(heart)
+        heart.setImage(UIImage(named: "heart") , for: .normal)
+        heart.setImage(UIImage(named: "hearted") , for: .selected)
+        heart.addTarget(self, action: #selector(ViewController.click(_:)), for: .touchUpInside)
+        
         
     }
+    func click(_ button : UIButton){
+        button.isSelected = !button.isSelected
+        let k = CAKeyframeAnimation.init(keyPath: "transform.scale")
+        k.values = [0.1,1.0,1.5]
+        k.keyTimes = [0.0,0.8,1.0]
+        k.calculationMode = kCAAnimationLinear
+        button.layer.add(k, forKey: "SHOW")
+    }
+    
     
     
 
@@ -77,6 +103,18 @@ extension ViewController : UICollectionViewDelegate , UICollectionViewDataSource
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("点击图片\(indexPath.row)")
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        //center是collectionView的frame的中心点 pInView是中心点对应到collectionVIew的contentView的坐标
+        let pInView = self.view.convert(self.collectionView.center, to: self.collectionView)
+        let indexPathNow = self.collectionView.indexPathForItem(at: pInView)!
+        let rowNum = indexPathNow.row + 1
+        let str = "我的足迹（\(rowNum) / \(data.count)）"
+        let attributeString = NSMutableAttributedString(string: str)
+        attributeString.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 10),
+                                     range: NSMakeRange(4, attributeString.length-4))
+        attributeString.addAttributes([NSBaselineOffsetAttributeName : 0.36*(14-10)], range: NSMakeRange(4, attributeString.length-4))
+        desLabel.attributedText = attributeString
     }
     
 }
